@@ -1,1 +1,1 @@
-This is a starter template for [Learn Next.js](https://nextjs.org/learn).
+A generative desing search tool, crafted for designers to search, generate, and iterate.# arc-ai
