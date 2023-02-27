@@ -40,9 +40,6 @@ const BootstrapButton = styled(Button)({
   });
   
   
-
-
-
 const PromptCard = (props) => { 
     return (
         <div className={styles.explorer_grid}>

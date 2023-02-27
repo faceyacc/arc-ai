@@ -1,0 +1,23 @@
+.sidebar {
+  --sidebar-width: 60px;
+  --transparentBorder: hsla(0, 0%, 100%, .1);
+  display: flex;
+  width: var(--sidebar-width);
+  flex-direction: column;
+  position: sticky;
+  height: 100vh;
+  top: 0;
+  flex-shrink: 0;
+  align-items: center;
+  z-index: 200;
+  background: #222222;
+  box-shadow: 1px 0 0 0 var(--transparentBorder);
+}
+
+.sidebarButtons {
+  display: flex;
+  flex-direction: column;
+  row-gap: 24px;
+  margin: auto 0;
+  list-style-type: none;
+}

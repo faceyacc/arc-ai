@@ -9,6 +9,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import { grey } from '@mui/material/colors';
 import { IconButton } from '@mui/material';
 import PromptCard from '../components/promptCard';
+import SearchSideBar from '../components/SearchSideBar';
 
 const BootstrapButton = styled(Button)({
   boxShadow: 'none',
@@ -78,13 +79,7 @@ export default function Home() {
       </Head>
 
       <div className={styles.cvc}>
-
-        <div className={styles.sidebar}>
-          <ul className={styles.sidebarButtons}>
-            <IconButton><SearchIcon className={styles.searchButton} sx={{ fontSize: 33, color: grey[200]}} /></IconButton>
-          </ul>
-        </div>
-
+        <SearchSideBar/>
         <main>
           <div className={styles.dashboard}>
             
