@@ -3,12 +3,12 @@ import Image from 'next/image';
 import styles from '../styles/Home.module.css';
 import homepage from '../public/homepage.gif'
 import { Masonry } from '@mui/lab';
-
-import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import Button, { ButtonProps } from '@mui/material/Button';
-import Stack from '@mui/material/Stack';
-import { purple } from '@mui/material/colors';
+import SearchIcon from '@mui/icons-material/Search';
+import { grey } from '@mui/material/colors';
+import { IconButton } from '@mui/material';
+import PromptCard from '../components/promptCard';
 
 const BootstrapButton = styled(Button)({
   boxShadow: 'none',
@@ -81,15 +81,7 @@ export default function Home() {
 
         <div className={styles.sidebar}>
           <ul className={styles.sidebarButtons}>
-            <li>
-              <div> Item 1 </div>
-            </li>
-            <li>
-              <div> Item 2  </div>
-            </li>
-            <li>
-              <div> Item 3  </div>
-            </li>
+            <IconButton><SearchIcon className={styles.searchButton} sx={{ fontSize: 33, color: grey[200]}} /></IconButton>
           </ul>
         </div>
 
@@ -120,29 +112,7 @@ export default function Home() {
               <div className={styles.explorer_title_wrapper}> 
                 <div className={styles.explorer_title} >Example Promps</div>
               </div>
-              
-              <div className={styles.explorer_grid}>
-                  
-                    <Masonry columns={5} spacing={4}>
-                      {images.map((item, index) => (
-                        <div className={styles.prompt_card_wrapper}>
-                          <img  src={item} 
-                                style={{
-                                  borderTopLeftRadius: 12,
-                                  borderTopRightRadius: 12,
-                                  display: 'block',
-                                  width: '100%',
-                                }}/>
-                            <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</p>
-                            {/* <button>Try Prompt</button> */}
-                            <BootstrapButton variant="contained" disableRipple>
-                              Try Prompt
-                            </BootstrapButton>
-                        </div>
-                      ))}
-                    </Masonry>          
-                  
-              </div>
+              <PromptCard images_list={images}/>
             </div>
           </div>
         </main>
