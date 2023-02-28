@@ -2,14 +2,13 @@ import Head from 'next/head';
 import Image from 'next/image';
 import styles from '../styles/Home.module.css';
 import homepage from '../public/homepage.gif'
-import { Masonry } from '@mui/lab';
 import { styled } from '@mui/material/styles';
 import Button, { ButtonProps } from '@mui/material/Button';
-import SearchIcon from '@mui/icons-material/Search';
-import { grey } from '@mui/material/colors';
-import { IconButton } from '@mui/material';
 import PromptCard from '../components/promptCard';
 import SearchSideBar from '../components/SearchSideBar';
+import { AnimatePresence, motion } from "framer-motion";
+import { useState } from 'react';
+
 
 const OpenAppButton = styled(Button)({
   // padding: '6px 12px',
@@ -43,10 +42,9 @@ const OpenAppButton = styled(Button)({
 });
 
 
-
-
-
 export default function Home() {
+
+  const [sidebar, setSideBar] = useState(false)
 
     // images
     const images = [
@@ -63,9 +61,6 @@ export default function Home() {
       });
     }
 
- 
-
-
   return (
     <>
       <Head>
@@ -73,43 +68,45 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className={styles.cvc}>
-        <SearchSideBar/>
-        <main>
-          <div className={styles.dashboard}>
-            
-            {/* Begin Banner */}
-            <div className={styles.bannerContainer}>
-              <div className={styles.navBar}>
-                <ul>
-                  <li> <a> Home</a> </li>
-                  <li><a>Features</a></li>
-                  <li><a>About</a></li>
-                </ul>
-              </div>
-              <div className={styles.videoBanner} >
-                <div className={styles.videoBanner_text_container}>
-                  <h1>Arcai</h1>
-                  <p>Search, Generate & Iterate with Arcai. A generative tool for designers.</p>
-                  <OpenAppButton className={styles.buttonHover} > Open App </OpenAppButton>
+
+      <AnimatePresence>
+        <div className={styles.cvc}>
+          {/* <SearchSideBar/> */}
+          <main>
+            <div className={styles.dashboard}>
+              
+              {/* Begin Banner */}
+              <div className={styles.bannerContainer}>
+                <div className={styles.navBar}>
+                  <ul>
+                    <li> <a> Home</a> </li>
+                    <li><a>Features</a></li>
+                    <li><a>About</a></li>
+                  </ul>
                 </div>
-                <Image className={styles.videoBanner} src={homepage} alt="homepage gif" width={600}/>
-              </div>
-            </div>    
-            {/* End Banner */}
+                <div className={styles.videoBanner} >
+                  <div className={styles.videoBanner_text_container}>
+                    <h1>Arcai</h1>
+                    <p>Search, Generate & Iterate with Arcai. A generative tool for designers.</p>
+                    <OpenAppButton className={styles.buttonHover} > Open App </OpenAppButton>
+                  </div>
+                  <Image className={styles.videoBanner} src={homepage} alt="homepage gif" width={600}/>
+                </div>
+              </div>    
+              {/* End Banner */}
 
-            {/* Begin Prompt Examplar */}
-            <div className={styles.explorerWrapper}>
-              <div className={styles.explorer_title_wrapper}> 
-                <div className={styles.explorer_title} >Example Prompts:</div>
+              {/* Begin Prompt Examplar */}
+              <div className={styles.explorerWrapper}>
+                <div className={styles.explorer_title_wrapper}> 
+                  <div className={styles.explorer_title} >Example Prompts:</div>
+                </div>
+                <PromptCard images_list={images}/>
               </div>
-              <PromptCard images_list={images}/>
+              {/* End Prompt Examplar */}
             </div>
-            {/* End Prompt Examplar */}
-          </div>
-        </main>
-      </div>
-
+          </main>
+        </div>
+      </AnimatePresence>
 
 
       <style jsx>{`
