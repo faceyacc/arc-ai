@@ -57,7 +57,7 @@ const PromptCard = (props) => {
                     <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</p>
                     {/* <button>Try Prompt</button> */}
                     <BootstrapButton variant="contained" disableRipple>
-                    Try Prompt
+                      Try Prompt
                     </BootstrapButton>
                 </div>
             ))}

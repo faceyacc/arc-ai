@@ -11,12 +11,15 @@ import { IconButton } from '@mui/material';
 import PromptCard from '../components/promptCard';
 import SearchSideBar from '../components/SearchSideBar';
 
-const BootstrapButton = styled(Button)({
+const OpenAppButton = styled(Button)({
+  // padding: '6px 12px',
+  margin: '15px 0px 0px 0px',
   boxShadow: 'none',
   textTransform: 'none',
-  fontSize: 16,
+  width: '90px',
+  borderRadius: '40px',
+  fontSize: 13,
   opacity: 0.8,
-  padding: '6px 12px',
   lineHeight: 1.5,
   backgroundColor: '#222222',
   fontFamily: [
@@ -32,18 +35,10 @@ const BootstrapButton = styled(Button)({
     '"Segoe UI Symbol"',
   ].join(','),
   '&:hover': {
-    backgroundColor: '#0069d9',
+    backgroundColor: '#333333',
     borderColor: '#0062cc',
     boxShadow: 'none',
     opacity: 1,
-  },
-  '&:active': {
-    boxShadow: 'none',
-    backgroundColor: '#0062cc',
-    borderColor: '#005cbf',
-  },
-  '&:focus': {
-    boxShadow: '0 0 0 0.2rem rgba(0,123,255,.5)',
   },
 });
 
@@ -87,17 +82,18 @@ export default function Home() {
             <div className={styles.bannerContainer}>
               <div className={styles.navBar}>
                 <ul>
-                  <li> <a>Home</a> </li>
+                  <li> <a> Home</a> </li>
                   <li><a>Features</a></li>
                   <li><a>About</a></li>
                 </ul>
               </div>
               <div className={styles.videoBanner} >
                 <div className={styles.videoBanner_text_container}>
-                  <p>VIDEO TEXT HERE</p>
+                  <h1>Arcai</h1>
+                  <p>Search, Generate & Iterate with Arcai. A generative tool for designers.</p>
+                  <OpenAppButton className={styles.buttonHover} > Open App </OpenAppButton>
                 </div>
                 <Image className={styles.videoBanner} src={homepage} alt="homepage gif" width={600}/>
-                <div></div>        
               </div>
             </div>    
             {/* End Banner */}
@@ -105,10 +101,11 @@ export default function Home() {
             {/* Begin Prompt Examplar */}
             <div className={styles.explorerWrapper}>
               <div className={styles.explorer_title_wrapper}> 
-                <div className={styles.explorer_title} >Example Promps</div>
+                <div className={styles.explorer_title} >Example Prompts:</div>
               </div>
               <PromptCard images_list={images}/>
             </div>
+            {/* End Prompt Examplar */}
           </div>
         </main>
       </div>
