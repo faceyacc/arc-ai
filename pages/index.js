@@ -8,6 +8,7 @@ import PromptCard from '../components/promptCard';
 import SearchSideBar from '../components/SearchSideBar';
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from 'react';
+import Link from 'next/link';
 
 
 const OpenAppButton = styled(Button)({
@@ -88,7 +89,7 @@ export default function Home() {
                   <div className={styles.videoBanner_text_container}>
                     <h1>Arcai</h1>
                     <p>Search, Generate & Iterate with Arcai. A generative tool for designers.</p>
-                    <OpenAppButton className={styles.buttonHover} > Open App </OpenAppButton>
+                    <Link href="/dashboard"><OpenAppButton className={styles.buttonHover} > Open App </OpenAppButton></Link>
                   </div>
                   <Image className={styles.videoBanner} src={homepage} alt="homepage gif" width={600}/>
                 </div>
