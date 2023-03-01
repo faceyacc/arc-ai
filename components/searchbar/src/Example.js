@@ -5,6 +5,8 @@ import { useDimensions } from "./use-dimensions";
 import { MenuToggle } from "./MenuToggle";
 import { Navigation } from "./Navigation";
 import styles from './sidebar.module.css';
+import CloseIcon from '@mui/icons-material/Close';
+import { grey } from '@mui/material/colors';
 
 const sidebar = {
   open: (height = 1000) => ({
@@ -16,12 +18,11 @@ const sidebar = {
     }
   }),
   closed: {
-    clipPath: "circle(30px at 40px 40px)",
+    clipPath: "inset(0% 80% 0px 0px)",
     transition: {
-      delay: 0.5,
       type: "spring",
-      stiffness: 400,
-      damping: 40
+      stiffness: 20,
+      restDelta: 2
     }
   }
 };
@@ -41,6 +42,10 @@ export const Example = () => {
     >
       <motion.div className={styles.background} variants={sidebar} />
       <Navigation />
+      {/* { !isOpen ? 
+        <MenuToggle toggle={() => toggleOpen()}/> : 
+        (<><CloseIcon sx={{ fontSize: 33, color: grey[300]}} /></>) 
+      } */}
       <MenuToggle toggle={() => toggleOpen()} />
     </motion.nav>
   );

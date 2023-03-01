@@ -1,6 +1,10 @@
 import * as React from "react";
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, useCycle } from "framer-motion";
 import styles from './sidebar.module.css';
+import SearchIcon from '@mui/icons-material/Search';
+import { grey } from '@mui/material/colors';
+import CloseIcon from '@mui/icons-material/Close';
 
 
 const Path = props => (
@@ -13,29 +17,34 @@ const Path = props => (
   />
 );
 
-export const MenuToggle = ({ toggle }) => (
-  <button onClick={toggle} className={styles.button}>
-    <svg width="23" height="23" viewBox="0 0 23 23">
-      <Path
-        variants={{
-          closed: { d: "M 2 2.5 L 20 2.5" },
-          open: { d: "M 3 16.5 L 17 2.5" }
-        }}
-      />
-      <Path
-        d="M 2 9.423 L 20 9.423"
-        variants={{
-          closed: { opacity: 1 },
-          open: { opacity: 0 }
-        }}
-        transition={{ duration: 0.1 }}
-      />
-      <Path
-        variants={{
-          closed: { d: "M 2 16.346 L 20 16.346" },
-          open: { d: "M 3 2.5 L 17 16.346" }
-        }}
-      />
-    </svg>
-  </button>
-);
+
+export const MenuToggle = ({ toggle }) => {
+  const [isOpen, setOpen] = useState(true);
+
+  const close = () => {
+    setOpen(false)
+    toggle()
+  }
+
+  const open = () => {
+    setOpen(true)
+    toggle()
+  }
+
+  return (
+    <>
+      { isOpen ? (
+        <button onClick={close} className={styles.button} >
+          <div className={styles.searchIcon}>
+            <SearchIcon sx={{ fontSize: 33, color: grey[300]}} />
+          </div>
+        </button>
+      ) : (  
+      <button onClick={open} className={styles.button}>
+        <div >
+          <CloseIcon sx={{ fontSize: 33, color: grey[300]}} />
+        </div>
+      </button>) }
+    </>
+  )
+};

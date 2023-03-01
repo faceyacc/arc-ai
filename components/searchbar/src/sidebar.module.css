@@ -10,6 +10,11 @@
   align-items: center;
 }
 
+.searchIcon {
+  margin-top: 700%;
+  margin-right: 30%;
+}
+
 .nav {
   position: absolute;
   top: 0;
@@ -24,7 +29,7 @@
   left: 0;
   bottom: 0;
   width: 300px;
-  background: #fff;
+  background: #121212;
 }
 
 .button {
