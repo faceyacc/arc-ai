@@ -60,9 +60,7 @@ function Sidebar({ sideBar = false, setSideBar = () => {} }) {
 
 const SearchSideBar = () => {
   const [sideBar, setSideBar] = useState(false)
-
     return (
-        
         <div className={styles.sidebar}>
             <ul className={styles.sidebarButtons}>
             <Sidebar {...{ sideBar, setSideBar }} />              

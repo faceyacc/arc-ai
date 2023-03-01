@@ -1,10 +1,10 @@
 import Link from 'next/link';
-import { Example } from '../components/searchbar/src/Example';
+import { Sidebar } from '../components/searchbar/src/Sidebar';
 
 export default function Dashboard() {
   return (
     <>
-      <Example/>
+      <Sidebar/>
       <style jsx>{`
       footer {
         width: 100%;
